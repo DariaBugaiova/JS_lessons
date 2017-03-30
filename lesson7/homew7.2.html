@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+  <p>111</p>
+
+
+  <blockquote>
+   222
+  </blockquote>
+
+  <p>333</p>
+
+
+  <script>
+    
+    function positionAt(anchor, position, elem) {
+
+      var anchorCoords = anchor.getBoundingClientRect();
+
+      switch (position) {
+        case "top":
+          elem.style.left = anchorCoords.left + "px";
+          elem.style.top = anchorCoords.top - elem.offsetHeight + "px";
+          break;
+
+        case "right":
+          elem.style.left = anchorCoords.left + anchor.offsetWidth + "px";
+          elem.style.top = anchorCoords.top + "px";
+          break;
+
+        case "bottom":
+          elem.style.left = anchorCoords.left + "px";
+          elem.style.top = anchorCoords.top + anchor.offsetHeight + "px";
+          break;
+      }
+
+    }
+
+    
+    function getElem(anchor, position, html) {
+
+      var note = document.createElement('div');
+      note.className = "note";
+      note.innerHTML = html;
+      document.body.appendChild(note);
+
+      positionAt(anchor, position, note);
+    }
+
+    // проверка работоспособности
+    var blockquote = document.querySelector('blockquote');
+
+    getElem(blockquote, "top", "заметка сверху");
+    getElem(blockquote, "right", "заметка справа");
+    getElem(blockquote, "bottom", "заметка снизу");
+  </script>
+
+
+</body>
+
+</html>

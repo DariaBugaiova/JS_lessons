@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+   
+    </head>
+    <body>
+       
+        <ul>
+  <li>1</li>
+  <li>2</li>
+</ul>
+        
+        
+         <script>
+       
+        var cel = ["beforeBegin", "afterBegin", "beforeEnd", "afterEnd"];
+        var i = 0;
+      
+        var ul = document.body.children[0];        
+        var span2 = document.createElement("span");
+              span2.innerHTML = "text";
+        
+             
+          timer = setInterval(function() {
+           if(i<4) ul.insertAdjacentElement(cel[i++], span2);}, 300);
+              
+              
+          
+       
+    
+        
+       
+ 
+     
+ 
+ 
+        </script>
+    </body>
+</html>
