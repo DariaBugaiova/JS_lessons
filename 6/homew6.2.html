@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+                 var elem = document.createElement('div');
+            elem.innerHTML = '<b>Новый элемент</b>';
+
+    function insertAfter(elem, refElem) { 
+      return refElem.parentNode.insertBefore(elem, refElem.nextSibling);
+  }
+
+         var body = document.body;
+
+  // вставить elem после первого элемента
+        insertAfter(elem, body.firstChild); // <--- должно работать
+
+  // вставить elem за последним элементом
+        insertAfter(elem, body.lastChild); // <--- должно работать   
+        </script>
+    </head>
+    <body>
+        <div>Это</div>
+        <div>Элементы</div>
+        
+    </body>
+</html>
