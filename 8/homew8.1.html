@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form action="#" method="post">
+            Логин: <input name="log" type="text"><br>
+            Пароль: <input name="passw" type="text"><br>
+            Тел. номер: <input name="phone" type="text"><br>
+            <input type = "button" value="Отправить" onclick="validate(this.form)">
+       
+        </form>
+    <script>
+    
+
+    function resetError(container) {
+      container.className = '';
+      if (container.lastChild.className === "error-message") {
+        container.removeChild(container.lastChild);
+      }
+    }
+        
+        
+        function validate(form){
+            var elems = form.elements;
+            
+            
+            
+           resetError(elems.log.parentNode);
+            if(/\d/.test(elems.log.value)){
+               alert('Содержит цифры!');
+               
+              
+			form.elements.log.style.backgroundColor = 'red'; 
+            }
+            
+           
+            resetError(elems.passw.parentNode);
+            
+           //var regexp = "$";
+            
+            
+            if(/$/.test(elems.passw.value)){
+                
+                 form.elements.passw.style.backgroundColor = 'red';
+            }
+            
+            resetError(elems.phone.parentNode);
+            if(!(/\d/.test(elems.phone.value))){
+               // alert('Цифры');
+                form.elements.phone.style.backgroundColor = 'red';
+            }
+            
+           
+        }
+        </script>
+    
+    </body>
+</html>

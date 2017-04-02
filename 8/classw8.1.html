@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <link rel="stylesheet" type="text/css" href="homw8.1.css">
+    </head>
+    <body>
+        <div class="color" id="div1"></div>
+        <div class="color" id="div2"></div>
+        <div class="color" id="div3"></div>
+        <div class="color" id="div4"></div>
+        <div class="color" id="div5"></div>
+        
+        
+        <button id="btn" >Red</button>
+        
+    <script>
+                
+             var count = 0; 
+             var elems = document.getElementsByClassName('color');
+                        
+                
+        var btn = document.getElementById("btn");
+      
+        
+        
+       //for(i = 0; i < elems.length; i++){
+          
+        btn.onclick = function(){
+            
+            
+            elems[count].style.backgroundColor = "red";
+              if(count > 0&& count< elems.length){
+                  elems[count-1].style.backgroundColor = "green";
+              }
+               
+               count++;
+             
+        };
+       
+    
+        </script>   
+    
+    </body>
+    
+    </html>

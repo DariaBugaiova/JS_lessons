@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+       <button data-tooltip="подсказка длиннее, чем элемент" >Короткая кнопка</button>
+       <button data-tooltip="HTML<br>подсказка" >Ещё кнопка</button>
+
+      <script>
+         
+    var showingTooltip;
+
+
+
+    document.onmouseover = function(e) {
+      var target = e.target;
+
+          var tooltip = target.getAttribute('data-tooltip');
+             if (!tooltip) return;
+
+          var tooltipElem = document.createElement('div');
+             tooltipElem.className = 'tooltip';
+             tooltipElem.innerHTML = tooltip;
+        document.body.appendChild(tooltipElem);
+
+        var coords = target.getBoundingClientRect();
+
+            var left = coords.left + (target.offsetWidth - tooltipElem.offsetWidth) / 2;
+               if (left < 0) left = 0; // не вылезать за левую границу окна
+
+            var top = coords.top - tooltipElem.offsetHeight - 5;
+               if (top < 0) { // не вылезать за верхнюю границу окна
+            top = coords.top + target.offsetHeight + 5;
+         }
+
+      tooltipElem.style.left = left + 'px';
+      tooltipElem.style.top = top + 'px';
+
+      showingTooltip = tooltipElem;
+    };
+
+    document.onmouseout = function(e) {
+
+      if (showingTooltip) {
+        document.body.removeChild(showingTooltip);
+        showingTooltip = null;
+      }
+
+    };
+          </script>
+    </body>
+</html>

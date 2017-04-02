@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <input type="text" id="value1"><br>
+        <input type="text" id="value2"><br>
+        <br>
+        
+     
+        <input type="button" value="+" id="sum">
+        <input type="button" value="-" id = "sub">
+        <input type="button" value="*" id ="multipl">
+        <input type="button" value="/" id="division">
+        
+        <br>
+        <input type="text" id ="result" >
+       <script>
+         
+           
+           
+           /*1 вар
+            * sum.onclick = function(){
+               result.value = +value1.value + +value2.value;
+           };
+           
+           sub.onclick = function(){
+             result.value = value1.value - value2.value;  
+           };
+           
+           multipl.onclick = function(){
+               result.value = value1.value * value2.value;
+           };
+           division.onclick = function(){
+               result.value = value1.value / value2.value;
+           };*/
+    
+            //2вар
+        var sum = document.getElementById('sum');
+        sum.addEventListener('click', clickSum);
+        
+        
+         var sub = document.getElementById('sub');
+        sub.addEventListener('click', clickSub);
+        
+        
+         var multipl = document.getElementById('multipl');
+        multipl.addEventListener('click', clickMultipl);
+        
+         var division = document.getElementById('division');
+        division.addEventListener('click', clickDivision);
+        
+        
+        function clickSum(){
+           result.value =  +value1.value + +value2.value;
+            
+        }
+        
+         function clickSub(){
+           result.value =  value1.value - value2.value;
+            
+        }
+         function clickMultipl(){
+           result.value =  value1.value * value2.value;
+            
+        }
+         function clickDivision(){
+           result.value =  value1.value / value2.value;
+            
+        }
+        
+        
+        
+           </script>
+    </body>
+</html>
