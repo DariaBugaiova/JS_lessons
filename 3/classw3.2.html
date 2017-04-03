@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <script>
+           function Calculator(a,b){
+         this.a = a;
+         this.b = b;
+         this.read = function(){
+        
+             this.a = prompt('First number', 0);
+             this.b = prompt('Second number', 0);
+         };
+    
+         this.sum = function(summ){
+             return summ = +(this.a)+ +(this.b);
+         };
+    
+         this.mul= function(mull){
+             return mull = this.a * this.b;
+         };
+     }
+
+     var calculator = new Calculator();
+     calculator.read();
+
+     alert("Сумма=" + calculator.sum());
+     alert("Произведение=" + calculator.mul() );
+       </script>
+    </head>
+    <body>
+        <div>TODO write content</div>
+    </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+       
+        
+       
+         var arg = 4,                         // аргумент для функции runString
+            obj = {
+              param: 'nnn',                  // имя параметра для функции в свойстве func
+              func: 'return Math.sqrt(nnn)'  // функция, которая должна быть вызванв с  агрументом arg
+              };
+             
+             
+             function runString(arg, obj){
+                 console.log('inside runString');
+                 eval (obj.param +'=' + arg);
+                 
+                 result = eval('(function() {'+ obj.func + '}())');
+                 console.log(result);
+                 console.log('after eval');
+             }
+            
+            console.log('before runString');
+          
+            runString(arg, obj);  
+     
+        
+        
+        </script>
+    </head>
+    <body>
+        <div></div>
+    </body>
+</html>

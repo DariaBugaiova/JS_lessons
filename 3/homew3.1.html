@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function sum(a) {
+
+           var currentSum = a;
+
+            function f(b) {
+              currentSum += b;
+              return f;
+            }
+
+            f.toString = function() {
+              return currentSum;
+            };
+
+               return f;
+            }
+
+        alert( sum(1)(2) ); // 3
+        alert( sum(5)(-1)(2) ); // 6
+        alert( sum(6)(-1)(-2)(-3) ); // 0
+        alert( sum(0)(1)(2)(3)(4)(5) ); // 15
+        </script>
+    </head>
+    <body>
+        <div>TODO write content</div>
+    </body>
+</html>

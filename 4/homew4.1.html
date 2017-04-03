@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script>
+        var call = F.apply(thisArg, joinArgs());
+         function F(a, b)  {   
+        this.fullName = a - b;
+    };
+         function joinArgs(){
+                arguments.join = [].join;
+                var string = arguments.join(',');
+                alert(string);
+            }
+            
+            joinArgs(1,2);
+            </script>
+    </body>
+</html>
