@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+
+    <script>
+        var delayMillis = 1000; //1 second
+
+        function loadImageInASec () {
+            myVar = setTimeout(function () {
+                document.getElementById('image1').src= 'img.jpg';
+            }, 1000);
+        }
+
+        function clearImg() {
+            document.getElementById('image1').src = '';
+        }
+    </script>
+       
+
+    </head>
+    <body onload=" loadImageInASec()">
+        <input type="button" name="Button" value="Button" onclick="clearImg(); loadImageInASec();"/>
+        <img id="image1" src=""/>
+
+
+    </body>
+    </html>

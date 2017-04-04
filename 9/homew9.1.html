@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+    .selected {
+      background: red;
+    }
+
+    li {
+      cursor: pointer;
+    }
+  </style>
+    </head>
+    <body>
+        <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+  </ul>
+        
+        <script>
+            var ul = document.querySelector('ul');
+
+            var lastClickedLi = null;
+
+   
+    ul.onclick = function(event) {
+      var target = event.target;
+
+      if (target.tagName !== "LI") return;
+
+     
+        selectSingle(target);
+      
+
+      lastClickedLi = target;
+    };
+
+    ul.onmousedown = function() {
+      return false;
+    };
+
+
+    function toggleSelect(li) {
+      li.classList.toggle('selected');
+    }
+
+     function deselectAll() {
+      for (var i = 0; i < ul.children.length; i++) {
+        ul.children[i].classList.remove('selected');
+      }
+    }
+
+   function selectSingle(li) {
+      deselectAll();
+      li.classList.add('selected');
+    }
+            </script>
+    </body>
+</html>
