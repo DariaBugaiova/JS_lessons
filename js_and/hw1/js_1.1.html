@@ -1,0 +1,19 @@
+<html>
+<head>
+</head>
+
+<body>
+<script type="text/javascript">
+
+	function camelCase(str){
+		
+      return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function(alf, index){
+    	return index == 0 ? alf.toLowerCase() : alf.toUpperCase();
+    }).replace(/\s+/g, '');
+  
+	}
+	alert(camelCase("i like to have fun"));
+	
+</script>
+</body>
+</html>
