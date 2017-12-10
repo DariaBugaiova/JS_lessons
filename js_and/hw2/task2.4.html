@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head></head>
+<body>
+
+<script type="text/javascript">
+
+
+function someFunc(arr){
+	let arr2 = [];
+	for(let i = 0; i<=arr.length; i++){
+		if((typeof(arr[i]) == 'number') && !isNaN(arr[i]) && arr[i] !=0){
+			arr2.push(arr[i]);
+		}
+	}
+
+	console.log(arr2);
+}
+
+
+someFunc([22, NaN, 35, 'Loloo', {}, undefined, null, 77, false, 0]); // [22,35, 77]
+</script>
+
+</body>
+</html>

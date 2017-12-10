@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head></head>
+<body>
+
+<script type="text/javascript">
+
+function isArray(n){
+	
+		//console.log(Array.isArray(n)); -1
+
+	//if(n.splice)   
+	//	console.log('true');  -2
+
+	//3
+    var str = {}.toString;
+    if(str.call(n) == '[object Array]'){
+    	console.log('true');
+    } else
+   		console.log(false);
+   		
+
+
+	}
+isArray([1,2,3]);
+</script>
+</body>
+</html>

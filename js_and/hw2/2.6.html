@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head></head>
+<body>
+
+<script type="text/javascript">
+
+function palindrome(str){
+	
+	let arr = str.split(/[\s,?!]+/); 
+	//console.log(arr);
+
+	for(let i = 0; i<arr.length; i++){
+		let polin = [];
+		for(let j = 0; j<arr.length; j++){
+			if((arr[i].length != 0&&1) && arr[i].toLowerCase() == arr[j].split("").reverse().join('').toLowerCase() && arr[i] != arr[j]){
+			
+			polin.push(arr[i], arr[j]);
+			console.log(polin);
+			}
+
+			
+		}
+
+	}
+}
+
+palindrome('Sire, was I ere I saw Eris?')
+</script>
+
+</body>
+</html>
