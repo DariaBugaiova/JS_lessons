@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <title></title>
+  <meta hrset="utf-8"></meta>
+
+<style>
+body{
+	text-align: center;
+}
+	#new_text{
+		margin-top: 10px;
+		border: 1px solid black;
+		height: 150px;
+		text-overflow: hidden;
+		width: 100%;
+	}
+	input{
+		
+		margin-top: 20px; 
+	}
+
+</style>
+ </head> 
+ <body>
+ 
+<textarea id='new_text'>
+	
+
+</textarea>
+
+<!--<input id="lf" value="ru" onclick="yatr.getlang('lf')" />
+<input id="ls" value="en"/></br> -->
+
+<select id ="lf" name = "langf" onmousedown ="yatr.getlang('lf')" onchange="yatr.alert_opt('If')">
+	<option id = "lff" value="ru">ru</option>
+</select></br>
+<select id ="ls" name = "lands" onmousedown ="yatr.getlang('ls')">
+	<option>en</option>
+</select>
+</br>
+
+<input id = "inp" type = "button" value = "Перевести" onclick="yatr.translate('new_text', 'lf','ls')" />
+<input type = "button" value = "Вернуть текст обратно" onclick="yatr.revert('new_text')"/>
+
+<script type="text/javascript">
+	var yatr = {
+		lines : {},
+
+		key : 'trnsl.1.1.20180211T123406Z.5e8fdca2b02e3b41.80c393299afdad5755bde4253495d0f45e99a098',
+		api : 'https://translate.yandex.net/api/v1.5/tr.json/translate',
+		apil: 'https://translate.yandex.net/api/v1.5/tr.json/getLangs',
+		translate: function(id, id_langf,id_langs){
+			var text_el = document.getElementById(id);
+			var text = text_el.value;
+			console.log(text);
+			document.getElementById(id).value = 'Перевод...';
+			////////////
+			var langf = document.getElementById(id_langf);
+			var langs = document.getElementById(id_langs);
+			////////////
+			var url = this.api+'?';
+			var that = this;
+
+
+			url+='key='+this.key;
+			url+='&text='+text;
+			url+='&lang='+(langf.value +'-'+langs.value);
+
+			var ajax = new XMLHttpRequest();
+			ajax.open('GET', url, true);
+			ajax.onreadystatechange = function(){
+				if(ajax.readyState == 4){
+					if(ajax.status == 200){
+						that.lines[id] = text;
+						text = ajax.responseText;
+						text = JSON.parse(text);
+						text = text.text[0];
+						document.getElementById(id).value = text;
+
+					}
+				}
+			};
+
+			ajax.send(null);
+		},
+		
+		revert: function(id){
+			document.getElementById(id).value = this.lines[id];
+		},
+		getlang: function(id_langf){
+			var text = document.getElementById(id_langf).value;		
+			var url = this.apil+'?';
+			url+='ui=' +'ru';	
+			url+='&key='+this.key;	
+
+			var xmlhttp = new XMLHttpRequest();			
+			xmlhttp.onreadystatechange = function(){
+				if(this.readyState == 4 && this.status == 200){					
+						text = xmlhttp.responseText;
+						text = JSON.parse(text);
+						text = text.langs;
+
+						//sel = document.createElement('select');
+
+						var select = document.getElementById('lf');
+						var selects = document.getElementById('ls');
+						var arr = [];
+					
+						function createSelect (select){
+						var str = '';
+						
+						for(key in text){
+							select.innerHTML += '<option>' + text[key] +'</option>';
+							
+								arr += key; 
+						
+					}
+
+						return select, arr;
+					}
+						createSelect(select);
+						createSelect(selects);
+
+						
+
+
+
+
+
+						
+						//select.innerHTML = str;
+						
+						//document.body.appendChild(select);	
+						//document.body.appendChild(sel);				
+														
+					}
+		};
+		xmlhttp.open('GET', url, true);
+		xmlhttp.send();
+		function createSelect(){
+
+		};
+	},
+    alert_opt: function(I){
+	var e = document.getElementById(I);
+	var opt= e.options[e.selectedIndex].value;
+
+						console.log(opt);
+	}
+}
+
+
+
+
+
+
+
+
+	
+
+
+</script>
+ </body>
+</html>
